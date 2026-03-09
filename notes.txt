@@ -1,0 +1,10 @@
+A very simple prompt, such as: 
+"I’m going to write some software with Claude Code. 
+I want you to interview me about this software. 
+Then I want you to build and turn that into a specification document that I can give Claude Code." - https://www.youtube.com/watch?v=lIJelwO8yHQ&t=2285s
+creates close-enough software. 
+
+That is not good enough for enterprise adoption of vibe-coding as a viable strategy.
+RDD solves that.
+
+https://code.claude.com/docs/en/how-claude-code-works#explore-before-implementing
