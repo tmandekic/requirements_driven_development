@@ -8,3 +8,5 @@ That is not good enough for enterprise adoption of vibe-coding as a viable strat
 RDD solves that.
 
 https://code.claude.com/docs/en/how-claude-code-works#explore-before-implementing
+
+https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/main/Qoder/Quest%20Design.txt
