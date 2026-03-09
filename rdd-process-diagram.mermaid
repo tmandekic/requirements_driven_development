@@ -1,0 +1,106 @@
+---
+title: Requirements-Driven Development (RDD) Process
+---
+flowchart TD
+    START([Start New Project]) --> S1
+
+    subgraph S1_BOX["Stage 1: Discovery & Scope"]
+        S1[/"Interview: Purpose,
+        Personas, Journeys"/]
+        S1 --> S1S["Classify P0 / P1 / P2
+        Define MVS
+        Set complexity budget"]
+        S1S --> S1D["Discovery & Scope Document
+        + Assumptions Register"]
+        S1D --> S1G{{"Review Gate:
+        Validate assumptions,
+        confirm priorities & MVS"}}
+    end
+
+    S1G -->|All resolved| S2
+
+    subgraph S2_BOX["Stage 2: Environment & Constraints"]
+        S2["Gather technical context
+        (docs / interview / reference project)"]
+        S2 --> S2D["Technical Context Document"]
+        S2D --> S2G{{"Review Gate:
+        Surface constraint conflicts"}}
+    end
+
+    S2G -->|Resolved| S3
+
+    subgraph S3_BOX["Stage 3: Architecture Proposal"]
+        S3["Propose 2–3 options
+        with tradeoffs"]
+        S3 --> S3D["Architecture Decision Document
+        + Journey Mapping"]
+        S3D --> S3G{{"Review Gate:
+        Select architecture"}}
+    end
+
+    S3G -->|Selected| S4
+
+    subgraph S4_BOX["Stage 4: Interaction Specification"]
+        S4["Define trigger, input, behavior,
+        output, errors for each journey"]
+        S4 --> S4D["Actor-System Interaction Doc
+        + Decision Log"]
+        S4D --> S4G{{"Review Gate:
+        Confirm every decision"}}
+    end
+
+    S4G -->|All confirmed| S5
+
+    subgraph S5_BOX["Stage 5: Implementation Plan"]
+        S5["Generate .md plan files:
+        foundation, architecture, constraints,
+        tests, sequence, deployment"]
+        S5 --> S5D["6 Implementation .md Files
+        + Traceability Matrix"]
+        S5D --> S5G{{"Review Gate:
+        Verify traceability"}}
+    end
+
+    S5G -->|Verified| S6
+
+    subgraph S6_BOX["Stage 6: Incremental TDD Execution"]
+        S6["Write failing tests"] --> S6B["Implement minimum to pass"]
+        S6B --> S6C["Refactor + full suite"]
+        S6C --> S6G{{"Checkpoint:
+        User review"}}
+        S6G -->|Next increment| S6
+    end
+
+    S6G -->|All increments done| DONE([Deployed System])
+
+    %% === FEEDBACK LOOPS ===
+
+    S2G -.->|"Constraints make
+    features infeasible"| S1
+    S3G -.->|"Tradeoffs require
+    re-prioritization"| S1
+    S4G -.->|"Journey underspecified
+    or more complex
+    than expected"| S1
+    S5G -.->|"Architectural
+    gap found"| S3
+    S6G -.->|"Spec gap /
+    ambiguity"| S4
+    S6G -.->|"Architectural
+    limitation"| S3
+    S6G -.->|"Scope creep
+    detected"| S1
+
+    %% === SCOPE MANAGEMENT ===
+    subgraph SCOPE_MGT["Continuous Scope Management"]
+        direction LR
+        SC1["Classify every new idea
+        as P0 / P1 / P2"]
+        SC2["Check complexity
+        budget at checkpoints"]
+        SC3["If P0 growth > 20%
+        → full re-plan"]
+    end
+
+    S6G -.->|"Scope check"| SCOPE_MGT
+    SCOPE_MGT -.-> S1
