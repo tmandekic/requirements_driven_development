@@ -51,8 +51,8 @@ The LLM interviews the user to understand who the system serves and why it exist
 The LLM is instructed to push back, challenge assumptions, ask about what the user didn't mention, and surface contradictions. Scope is established through a minimum viable scope (MVS) definition and a complexity budget.
 
 **Deliverables:** 
-Opinionated (must haves): Intention & Scope, User Stories (01-overview.md or CLAUDE.md, 02-user-stories.md)
-Dynamically Determined (optionals): persona profiles, journey maps, prioritized feature list (P0/P1/P2), MVS, scope risks, complexity budget, assumptions register
+- Opinionated (must haves): Intention & Scope, User Stories (01-overview.md or CLAUDE.md, 02-user-stories.md)
+- Dynamically Determined (optionals): persona profiles, journey maps, prioritized feature list (P0/P1/P2), MVS, scope risks, complexity budget, assumptions register
 
 **Review gate:** Structured checklist of assumptions to confirm or deny. No forward progress until resolved.
 
@@ -91,6 +91,7 @@ For each persona journey, the LLM defines: trigger, preconditions, exact inputs 
 
 All artifacts are saved into `.md` files in .rdd folder. 
 If delivery needs to be phased (MVP, must-haves, should-haves, nice-to-haves), LLM can generate phase-specific set of artifacts and save them into phase-specific .rdd folder (.rdd-MVP, .rdd-must-have, .rdd-should-have, .rdd-nice-to-have).
+
 Following are **opinionated** (mandatory) artifacts, and are prefixed with 00-based prefix: 
 - 01-overview.md (or CLAUDE.md)
 - 02-user-stories.md
